@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация - GET PET BACK</title>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            background-color: #ffffff; 
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+
+        .content-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-custom {
+            width: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="index.html"><img src="image/logo.jpg" class="w-25 rounded-3" alt="logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="index.html">Главная</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="profile.html">Личный кабинет</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="registration.html">Регистрация</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Вход</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="add_pet.html">Добавить объявление</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="search.html">Поиск по объявлениям</a>
+                </li>
+              </ul>
+              <form class="d-flex">
+                <input class="form-control me-2" type="search" list="pets" placeholder="Поиск" aria-label="Search">
+                <button class="btn btn-primary" onclick="">Поиск</button>
+                <datalist id="pets">
+                  <option value="Кошка"></option>
+                  <option value="Собака"></option>
+                  <option value="Корова"></option>
+                  <option value="Крокодил"></option>
+                  <option value="Сова"></option>
+                </datalist>
+              </form>
+            </div>
+          </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <div class="content-container">
+            <h2>Регистрация</h2>
+            <form id="registrationForm" class="row g-3 needs-validation" novalidate>
+                <div class="col-md-4">
+                    <label for="firstName" class="form-label">Имя</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="Иван" pattern="^[А-Яа-яЁё]{2,20}$" required>
+                    <div class="invalid-feedback">
+                        Имя должно содержать только русские буквы от 2 до 20 символов.
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="lastName" class="form-label">Фамилия</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Петров" pattern="^[А-Яа-яЁё]{2,20}$" required>
+                    <div class="invalid-feedback">
+                        Фамилия должна содержать только русские буквы от 2 до 20 символов.
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="middleName" class="form-label">Отчество</label>
+                    <input type="text" class="form-control" id="middleName" placeholder="Иванович" pattern="^[А-Яа-яЁё]{2,30}$" required>
+                    <div class="invalid-feedback">
+                        Отчество должно содержать только русские буквы от 2 до 30 символов.
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="birthDate" class="form-label">Дата рождения</label>
+                    <input type="date" class="form-control" id="birthDate" max="2009-12-31" required>
+                    <div class="invalid-feedback">
+                        Дата рождения должна быть не позднее 2010 года (вам должно быть хотя бы 14 лет).
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="city" class="form-label">Город</label>
+                    <input type="text" class="form-control" id="city" placeholder="Москва" pattern="^[А-Яа-яЁё]{2,}$" required>
+                    <div class="invalid-feedback">
+                        Город должен содержать только русские буквы, не менее 2 символов.
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="phoneNumber" class="form-label">Номер телефона</label>
+                    <input type="tel" class="form-control" id="phoneNumber" placeholder="+7 123 456 78 90" pattern="^\+7\s\d{3}\s\d{3}\s\d{2}\s\d{2}$" required>
+                    <div class="invalid-feedback">
+                        Укажите номер телефона в формате +7 123 456 78 90.
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="termsCheck" required>
+                        <label class="form-check-label" for="termsCheck">
+                            Примите условия и соглашения
+                        </label>
+                        <div class="invalid-feedback">
+                            Вы должны принять перед отправкой.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit">Зарегистрироваться</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="py-3 bg-primary">
+        <div class="container text-center">
+            <p class="text-white p-3">GET PET BACK © Copyright, 2022</p>
+            <p class="text-white p-3">Все права защищены</p>
+        </div>
+    </footer>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const form = event.target;
+
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated');
+                return;
+            }
+
+            alert('Регистрация успешна! Перенаправление на страницу профиля.');
+            window.location.href = 'profile.html';
+        });
+    </script>
+</body>
+</html>
